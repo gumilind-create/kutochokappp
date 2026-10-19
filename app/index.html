@@ -336,5 +336,59 @@
  </a>
 </div>
 <script src="/app.js" defer></script>
+ <script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Находим поле телефона по плейсхолдеру или типу
+    const phoneInput = document.querySelector('input[placeholder*="+380"], input[type="tel"]');
+    
+    if (phoneInput) {
+        // Устанавливаем начальное значение, если пусто
+        if (!phoneInput.value) {
+            phoneInput.value = '+380 ';
+        }
+
+        phoneInput.addEventListener('input', function(e) {
+            // Оставляем только цифры
+            let digits = phoneInput.value.replace(/\D/g, '');
+            
+            // Убираем код 380 или 0, если пользователь начал вводить заново
+            if (digits.startsWith('380')) {
+                digits = digits.substring(3);
+            } else if (digits.startsWith('38')) {
+                digits = digits.substring(2);
+            } else if (digits.startsWith('0')) {
+                digits = digits.substring(1);
+            }
+            
+            // Ограничиваем максимум 9 цифрами украинского номера
+            digits = digits.substring(0, 9);
+            
+            // Собираем номер обратно в красивый формат: +380 XX XXX-XX-XX
+            let formatted = '+380';
+            if (digits.length > 0) {
+                formatted += ' ' + digits.substring(0, 2);
+            }
+            if (digits.length >= 3) {
+                formatted += ' ' + digits.substring(2, 5);
+            }
+            if (digits.length >= 6) {
+                formatted += '-' + digits.substring(5, 7);
+            }
+            if (digits.length >= 8) {
+                formatted += '-' + digits.substring(7, 9);
+            }
+            
+            phoneInput.value = formatted;
+        });
+
+        // Запрещаем стирать префикс +380 полностью бэкспейсом
+        phoneInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Backspace' && phoneInput.selectionStart <= 5 && phoneInput.selectionEnd <= 5) {
+                e.preventDefault();
+            }
+        });
+    }
+});
+</script>
 </body>
 </html>
