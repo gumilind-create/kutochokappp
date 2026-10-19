@@ -1,0 +1,8 @@
+{
+  "name": "shidniy-kutochok",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Сайт кафе «Східний Куточок» з базою даних і панеллю керування",
+  "engines": { "node": ">=22" },
+  "scripts": { "start": "node --no-warnings server.js" }
+}

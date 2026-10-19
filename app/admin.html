@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Керування — Східний Куточок</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Forum&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#FBFAF7;--paper2:#F3F1EB;--mist:#E8F1ED;--card:#fff;
+ --ink:#16262A;--muted:#63776F;--teal:#2E6B68;--teal-d:#194746;
+ --gold:#B4863A;--gold-l:#D8B06A;--gold-dk:#7C5A22;
+ --line:rgba(180,134,58,.24);--line2:rgba(22,38,42,.10);
+ --bad:#B03A2E;--ok:#2E7D5B;
+ --f-d:'Forum',Georgia,serif;--f-b:'Manrope',system-ui,-apple-system,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-b);
+ font-size:15px;line-height:1.58;-webkit-font-smoothing:antialiased}
+a{color:var(--teal)}
+img{max-width:100%;display:block}
+.wrap{width:calc(100% - 24px);max-width:1180px;margin-inline:auto}
+@media(min-width:760px){.wrap{width:calc(100% - 48px)}}
+
+/* ---------- шапка ---------- */
+header{position:sticky;top:0;z-index:30;background:linear-gradient(180deg,var(--teal-d),#123736);
+ color:#EAF1EF;padding:0}
+header .wrap{display:flex;align-items:center;gap:12px;min-height:64px;flex-wrap:wrap}
+.hbrand{display:flex;align-items:center;gap:10px;min-width:0}
+.hbrand img{width:34px;height:34px;border-radius:50%;border:1px solid rgba(216,176,106,.5)}
+.hbrand b{font-family:var(--f-d);font-weight:400;font-size:16px;letter-spacing:.13em;
+ text-transform:uppercase;color:#F0E3C6;white-space:nowrap}
+.hbrand span{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+ color:rgba(234,241,239,.6)}
+header .sp{margin-left:auto}
+.hgold{height:2px;background:linear-gradient(90deg,transparent,var(--gold-l),transparent)}
+
+/* ---------- кнопки ---------- */
+button,.btnlike{font:inherit;cursor:pointer;border-radius:3px;border:1px solid var(--line2);
+ background:#fff;color:var(--ink);padding:0 15px;min-height:42px;
+ transition:border-color .2s,background .2s,color .2s,transform .15s}
+button:hover{border-color:var(--gold)}
+button:active{transform:translateY(1px)}
+.pri{background:var(--teal);color:#F7FAF9;border-color:var(--teal);font-weight:500}
+.pri:hover{background:var(--teal-d);border-color:var(--teal-d)}
+.danger{color:var(--bad);border-color:rgba(176,58,46,.3)}
+.danger:hover{background:var(--bad);color:#fff;border-color:var(--bad)}
+.ghost{background:rgba(255,255,255,.08);color:#EAF1EF;border-color:rgba(234,241,239,.3)}
+.ghost:hover{background:rgba(216,176,106,.22);border-color:var(--gold-l)}
+.mini{min-height:36px;padding:0 11px;font-size:13px}
+
+/* ---------- поля ---------- */
+input,select,textarea{font:inherit;width:100%;padding:11px 13px;border:1px solid var(--line2);
+ border-radius:3px;background:#fff;color:var(--ink);min-height:46px}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold);
+ box-shadow:0 0 0 3px rgba(216,176,106,.16)}
+textarea{min-height:76px;resize:vertical}
+label{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+ color:var(--muted);margin:0 0 5px;font-weight:600}
+
+/* ---------- вкладки ---------- */
+.tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:16px 0 4px}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:0 0 auto;display:flex;align-items:center;gap:8px;border-radius:100px;
+ padding:0 17px;min-height:44px;font-size:13.5px;letter-spacing:.03em;color:var(--muted);
+ background:#fff}
+.tabs button.on{background:var(--teal);color:#fff;border-color:var(--teal);font-weight:500;
+ box-shadow:0 10px 24px -16px rgba(25,71,70,.9)}
+.tabs button i{font-style:normal;font-size:15px;line-height:1}
+
+/* ---------- карточки ---------- */
+.card{background:var(--card);border:1px solid var(--line2);border-radius:5px;
+ padding:16px;margin-bottom:12px}
+.card--gold{border-color:var(--line);
+ background:linear-gradient(180deg,var(--mist),var(--card) 70px)}
+.head{display:flex;align-items:center;gap:11px;margin-bottom:12px;flex-wrap:wrap}
+.head h2{margin:0;font-family:var(--f-d);font-weight:400;font-size:22px;letter-spacing:.04em;
+ color:var(--teal-d)}
+.head h3{margin:0;font-family:var(--f-d);font-weight:400;font-size:17px;color:var(--teal-d)}
+.sect{margin:0 0 26px}
+.sect__t{display:flex;align-items:center;gap:12px;margin:26px 0 12px}
+.sect__t b{font-family:var(--f-d);font-weight:400;font-size:19px;letter-spacing:.08em;
+ text-transform:uppercase;color:var(--gold-dk)}
+.sect__t::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+.muted{color:var(--muted);font-size:13px}
+.grid{display:grid;gap:12px}
+.g2{grid-template-columns:1fr}
+.g3{grid-template-columns:1fr}
+@media(min-width:720px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:2fr 2fr 1fr}}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+
+/* ---------- значки ---------- */
+.pill{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;
+ border-radius:100px;border:1px solid var(--line2);color:var(--muted);white-space:nowrap}
+.pill.off{color:var(--bad);border-color:rgba(176,58,46,.28);background:rgba(176,58,46,.05)}
+.pill.good{color:var(--ok);border-color:rgba(46,125,91,.3);background:rgba(46,125,91,.06)}
+
+/* ---------- строки блюд ---------- */
+.dishrow{display:grid;grid-template-columns:56px 1fr;gap:12px;align-items:center;
+ padding:11px 8px;border-radius:4px;border-bottom:1px solid var(--line2);transition:background .2s}
+.dishrow:hover{background:var(--mist)}
+.dishrow:last-child{border-bottom:0}
+.dishrow .acts{grid-column:1/-1;display:flex;gap:6px;justify-content:flex-end}
+@media(min-width:720px){
+ .dishrow{grid-template-columns:56px 1fr auto}
+ .dishrow .acts{grid-column:auto}
+}
+.thumb{width:56px;height:56px;object-fit:cover;border-radius:3px;border:1px solid var(--line2);
+ background:var(--mist)}
+.dname{display:block;font-weight:500;font-size:15px;line-height:1.3}
+.dmeta{font-size:12.5px;color:var(--muted)}
+.dprice{font-family:var(--f-d);font-size:18px;color:var(--teal-d)}
+
+/* ---------- галерея ---------- */
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.gal .card{margin:0}
+.gal img{width:100%;height:0;padding-bottom:130%;object-fit:cover;border-radius:3px;
+ background:var(--mist)}
+@supports (aspect-ratio:1/1){.gal img{height:auto;padding-bottom:0;aspect-ratio:3/4}}
+
+/* ---------- окно правки ---------- */
+.modal{position:fixed;top:0;right:0;bottom:0;left:0;z-index:50;display:none;
+ background:rgba(12,26,28,.5);padding:0}
+.modal.on{display:block}
+.modal__box{position:absolute;left:0;right:0;bottom:0;top:auto;max-height:94vh;overflow:auto;
+ background:var(--paper);border-radius:12px 12px 0 0;padding:18px 16px 24px;
+ animation:up .28s cubic-bezier(.2,.7,.3,1) both}
+.modal__box::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
+ background:linear-gradient(90deg,transparent,var(--gold-l),transparent)}
+@keyframes up{from{transform:translateY(22px);opacity:.6}to{transform:none;opacity:1}}
+@media(min-width:760px){
+ .modal{display:none;padding:34px 20px}
+ .modal.on{display:grid;place-items:center}
+ .modal__box{position:relative;max-width:780px;width:100%;border-radius:6px;max-height:88vh}
+}
+.picker{display:grid;grid-template-columns:repeat(auto-fill,minmax(66px,1fr));gap:8px;
+ max-height:210px;overflow:auto;padding:9px;border:1px solid var(--line2);border-radius:4px;
+ background:var(--paper2)}
+.picker img{width:100%;height:0;padding-bottom:100%;object-fit:cover;border-radius:3px;
+ cursor:pointer;border:2px solid transparent}
+@supports (aspect-ratio:1/1){.picker img{height:auto;padding-bottom:0;aspect-ratio:1}}
+.picker img.sel{border-color:var(--teal);box-shadow:0 0 0 2px rgba(46,107,104,.25)}
+
+/* ---------- вход ---------- */
+#login{max-width:400px;margin:9vh auto;padding:0 16px;text-align:center}
+#login .logo{width:78px;margin:0 auto 16px;border-radius:50%;border:1px solid var(--line)}
+#login h1{font-family:var(--f-d);font-weight:400;font-size:23px;letter-spacing:.14em;
+ text-transform:uppercase;color:var(--teal-d);margin:0 0 4px}
+
+/* ---------- уведомление ---------- */
+#toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(150%);
+ background:var(--teal-d);color:#fff;padding:13px 22px;border-radius:100px;z-index:60;
+ transition:transform .3s cubic-bezier(.2,.7,.3,1);max-width:92vw;font-size:14px;
+ box-shadow:0 16px 34px -18px rgba(0,0,0,.6)}
+#toast.on{transform:translateX(-50%) translateY(0)}
+#toast.bad{background:var(--bad)}
+.hide{display:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div id="login">
+ <img class="logo" src="/img/logo.webp" alt="">
+ <h1>Східний Куточок</h1>
+ <p class="muted" style="margin:0 0 18px">Панель керування сайтом</p>
+ <div class="card card--gold">
+  <label for="pw">Пароль</label>
+  <input id="pw" type="password" autocomplete="current-password">
+  <button class="pri" id="doLogin" style="width:100%;margin-top:12px">Увійти</button>
+  <p class="muted" id="loginErr" style="color:var(--bad);min-height:20px;margin:10px 0 0"></p>
+ </div>
+</div>
+
+<div id="app" class="hide">
+ <header>
+  <div class="wrap">
+   <span class="hbrand"><img src="/img/logo.webp" alt="">
+    <span><b>Східний Куточок</b><span>панель керування</span></span></span>
+   <span class="sp"></span>
+   <a href="/" target="_blank"><button class="ghost mini">Відкрити сайт</button></a>
+   <button class="ghost mini" id="doLogout">Вийти</button>
+  </div>
+  <div class="hgold"></div>
+ </header>
+
+ <div class="wrap">
+  <div class="tabs">
+   <button data-t="dishes" class="on"><i>🍽</i>Страви</button>
+   <button data-t="cats"><i>📂</i>Категорії</button>
+   <button data-t="inbox"><i>🔔</i>Заявки й замовлення</button>
+   <button data-t="gallery"><i>🖼</i>Галерея</button>
+   <button data-t="settings"><i>⚙</i>Контакти</button>
+   <button data-t="pass"><i>🔑</i>Пароль</button>
+  </div>
+
+  <section id="t-dishes"></section>
+  <section id="t-cats" class="hide"></section>
+  <section id="t-inbox" class="hide"></section>
+  <section id="t-gallery" class="hide"></section>
+  <section id="t-settings" class="hide"></section>
+  <section id="t-pass" class="hide"></section>
+ </div>
+</div>
+
+<div id="toast"></div>
+<script src="/admin.js" defer></script>
+</body>
+</html>
