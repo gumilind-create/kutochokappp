@@ -351,7 +351,7 @@ button{font-family:inherit}
 .qty b{min-width:26px;text-align:center;font-weight:600}
 
 /* корзина */
-.cartbtn{position:fixed;right:12px;bottom:calc(72px + env(safe-area-inset-bottom));z-index:61;
+.cartbtn{position:fixed;right:12px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:61;
  display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border-radius:100px;
  background:var(--teal);color:#F7FAF9;border:0;cursor:pointer;font-size:14px;
  box-shadow:0 14px 30px -14px rgba(25,71,70,.9);animation:up .25s both}
